@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "LinkedIn Profile scraper",
+
+  "version": "1.0",
+  "description": "An extention that display the profile of a linkedin user",
+  "permissions": ["storage", "activeTab", "scripting", "tabs"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "./default.jpg",
+      "48": "./default.jpg",
+      "128": "./default.jpg"
+    },
+    "icons": {
+      "16": "./default.jpg",
+      "48": "./default.jpg",
+      "128": "./default.jpg"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+
+    "options_page": "options.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.linkedin.com/in/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
